@@ -36,13 +36,15 @@ The earliest challenges that inhibited building a data lake were keeping track o
 
  There are two general forms of a data catalog: a comprehensive data catalog that contains information about all assets that have been ingested into the S3 data lake, and a Hive Metastore Catalog (HCatalog) that contains information about data assets that have been transformed into formats and table definitions that are usable by analytics tools like Amazon Athena, Amazon Redshift, Amazon Redshift Spectrum, and Amazon EMR. The two catalogs are not mutually exclusive and both may exist. The comprehensive data catalog can be used to search for all assets in the data lake, and the HCatalog can be used to discover and query data assets in the data lake.
 
-### Datalake schema management with AWS Glue catalog
+[Multi-AZ](/src/multi-az)
+### [Schema management with AWS Glue catalog](/src/working-with-schema)
 
-<table><tr><td><a href="/src/multi-az"><img src="/src/multi-az/thumbnail.png"/></a></td><td></td></tr></table>
+<table><tr><td><a href="/src/working-with-schema"><img src="/src/working-with-schema/working-with-schemas.png"/></a></td><td>AWS Glue catalog is a metadata store to enable datalake schema evolution. Most common method used by most customers is to use Glue crawler to crawl through the dataset to collect metadata related to data schena and update Glue catalog.   </td></tr></table>
 
 
-### Data security and access control
+### [Data security and access control](/src/data-security-and-protection)
 
+<table><tr><td><a href="/src/working-with-schema"><img src=""/></a></td><td></td></tr></table>
 
 ## Data Ingestion
 
@@ -51,20 +53,30 @@ One of the core values of a data lake is that it is the collection point and rep
  The key to ‘democratizing’ the data and making the data lake available to the widest number of users of varying skill sets and responsibilities is to transform data assets into a format that allows for efficient ad hoc SQL querying. As discussed earlier, when a data lake is built on AWS, we recommend transforming log-based data assets into Parquet format. AWS provides multiple services to quickly and efficiently achieve this.
 
 
-### Using Kinesis firehose and Kinesis producer library (KPL)
+### [Using Kinesis firehose and Kinesis producer library (KPL)]()
+<table><tr><td><a href="/src/data-ingestion/kinesis-firehose-and-kpl"><img src="/src/data-ingestion/kinesis-firehose-and-kpl/ingestion-kinesis-and-kpl.png"/></a></td><td></td></tr></table>
 
-### Ingestion using AWS Glue
+### [Ingestion using AWS Glue](src/data-ingestion/kinesis-firehose-and-kpl)
+<table><tr><td><a href="/src/data-ingestion/aws-glue"><img src="/src/data-ingestion/aws-glue/ingestion-aws-glue.png"/></a></td><td></td></tr></table>
 
-### Capture DB changes using DMS (Database Migration Service)
+### [Capture DB changes using DMS (Database Migration Service)]()
+<table><tr><td><a href="/src/data-ingestion/dms-and-lambda"><img src="/src/data-ingestion/dms-and-lambda/ingestion-dms.png"/></a></td><td></td></tr></table>
 
-## Data Analytics
+## [Data Analytics]()
 
-### Multiple AWS EMR clusters in VPC
 
-#### Hive metastore on EMR
 
-#### Glue Catalog
+### Scale out with multiple EMR clusters
 
-### AWS Athana on Glue Catalog
 
-### Redshift Spectrum on Glue Catalog
+#### [Glue Catalog](/src/data-analytics/multi-emr-on-glue-catalog)
+<table><tr><td><a href="/src/data-analytics/multi-emr-on-glue-catalog"><img src="/src/data-analytics/multi-emr-on-glue-catalog/analytics-emr-glue-catalog.png"/></a></td><td></td></tr></table>
+
+#### [Hive metastore on EMR]()
+<table><tr><td><a href="src/data-analytics/multi-emr-on-hive-metastore"><img src="/src/data-analytics/multi-emr-on-hive-metastore/analytics-emr-hive-metastore.png"/></a></td><td></td></tr></table>
+
+### [AWS Athana on Glue Catalog]()
+<table><tr><td><a href="src/data-analytics/amazon-athena"><img src="/src/data-analytics/amazon-athena/analytics-athena.png"/></a></td><td></td></tr></table>
+
+### [Redshift Spectrum on Glue Catalog](src/data-analytics/multi-emr-on-hive-metastore)
+<table><tr><td><a href="src/data-analytics/multi-emr-on-hive-metastore"><img src="/src/data-analytics/multi-emr-on-hive-metastore/analytics-emr-hive-metastore.png"/></a></td><td></td></tr></table>
