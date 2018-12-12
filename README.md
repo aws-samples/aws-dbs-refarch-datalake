@@ -15,7 +15,7 @@ A data lake is ideally designed with the following characteristics:
 * **It complements enterprise data warehouse(EDW) **and is commonly a data source for the EDW – capturing all data but only passing relevant data to the EDW
 * Allows for data exploration without data model design and ingestion (**Quick user access**)
 
-## S3 : A storage service for Datalake
+## S3 : A Storage Service for Datalake
 
 
 
@@ -31,53 +31,59 @@ Key data lake-enabling features of Amazon S3 include the following:
 * **Standardized APIs** – Amazon S3 RESTful APIs are simple, easy to use, and supported by most major third-party independent software vendors (ISVs), including leading Apache Hadoop and analytics tool vendors. This allows customers to bring the tools they are most comfortable with and knowledgeable about to help them perform analytics on data in Amazon S3.
 
 
-## Working with Data Schemas
+## Schema Management Architecture
 
 The earliest challenges that inhibited building a data lake were keeping track of all of the raw assets as they were loaded into the data lake, and then tracking all of the new data assets and versions that were created by data transformation, data processing, and analytics. Thus, an essential component of an Amazon S3-based data lake is the data catalog. The data catalog provides a query-able interface of all assets stored in the data lake’s S3 buckets. The data catalog is designed to provide a single source of truth about the contents of the data lake.
 
  There are two general forms of a data catalog: a comprehensive data catalog that contains information about all assets that have been ingested into the S3 data lake, and a Hive Metastore Catalog (HCatalog) that contains information about data assets that have been transformed into formats and table definitions that are usable by analytics tools like Amazon Athena, Amazon Redshift, Amazon Redshift Spectrum, and Amazon EMR. The two catalogs are not mutually exclusive and both may exist. The comprehensive data catalog can be used to search for all assets in the data lake, and the HCatalog can be used to discover and query data assets in the data lake.
 
 
-### [Schema management with AWS Glue catalog](/src/working-with-schema)
+### [Schema Management with AWS Glue Catalog](/src/working-with-schema)
 
 <table><tr><td><a href="/src/working-with-schema"><img src="/src/working-with-schema/working-with-schemas.png"/></a></td><td>AWS Glue catalog is a metadata store to enable datalake schema evolution. Most common method used by most customers is to use Glue crawler to crawl through the dataset to collect metadata related to data schena and update Glue catalog.   </td></tr></table>
 
 
-### [Data security and access control](/src/data-security-and-protection)
+### [Data Security and Access Control Architectures](/src/data-security-and-protection)
 
 <table><tr><td><a href="/src/working-with-schema"><img src=""/></a></td><td></td></tr></table>
 
-## Data Ingestion
+## Data Ingestion Architectures
 
 One of the core values of a data lake is that it is the collection point and repository for all of an organization’s data assets, in whatever their native formats are. This enables quick ingestion, elimination of data duplication and data sprawl, and centralized governance and management. After the data assets are collected, they need to be transformed into normalized formats to be used by a variety of data analytics and processing tools.
 
  The key to ‘democratizing’ the data and making the data lake available to the widest number of users of varying skill sets and responsibilities is to transform data assets into a format that allows for efficient ad hoc SQL querying. As discussed earlier, when a data lake is built on AWS, we recommend transforming log-based data assets into Parquet format. AWS provides multiple services to quickly and efficiently achieve this.
 
 
-### [Using Kinesis firehose and Kinesis producer library (KPL)](/src/data-ingestion/kinesis-firehose-and-kpl)
+### [Using Kinesis Firehose and Kinesis Producer Library (KPL)](/src/data-ingestion/kinesis-firehose-and-kpl)
 <table><tr><td><a href="/src/data-ingestion/kinesis-firehose-and-kpl"><img src="/src/data-ingestion/kinesis-firehose-and-kpl/ingestion-kinesis-and-kpl.png"/></a></td><td>Kinesis is a massively scalable and durable real-time data streaming service. Kinesis firehose is fully managed service that delivers data in kinesis streams to target locations like S3. Kinesis firehose is commonly used to ingest data into S3 datalakes that are automatically partitioned by data arrival timestamp.</td></tr></table>
 
-### [Ingestion using AWS Glue](/src/data-ingestion/aws-glue)
+### [Ingestion Using AWS Glue](/src/data-ingestion/aws-glue)
 <table><tr><td><a href="/src/data-ingestion/aws-glue"><img src="/src/data-ingestion/aws-glue/ingestion-aws-glue.png"/></a></td><td>AWS Glue is a fully managed ETL service that is commonly used to run batch ETL jobs. AWS Glue is the most preferred tool to ingest and transform data in a S3 datalake. This architecture is an example of data extraction from data from RDBMS source and ingestion into a datalake using AWS Glue.</td></tr></table>
 
-### [Capture DB changes using DMS (Database Migration Service)](/src/data-ingestion/dms-and-lambda)
+### [Capture DB Changes with DMS (Database Migration Service)](/src/data-ingestion/dms-and-lambda)
 <table><tr><td><a href="/src/data-ingestion/dms-and-lambda"><img src="/src/data-ingestion/dms-and-lambda/ingestion-dms.png"/></a></td><td>CDC(Change data capture)  from relational databases are a very important dataset that are ingested in datalakes. DMS is a CDC tool that's widely used to capture changes from databases. This architecture demonstrates how to use DMS and AWS Lambda to collect and partition dataset in a datalake.  </td></tr></table>
 
-## Data Analytics
+## Data Analytics Architectures
+
+S3 datalake efficiently decouples storage and compute. Hence, it is easy to build analytic platforms that scale out with increase in demand. Over a period of time, there are many managed and serverless big data services have been developed on AWS to analyze data in S3.
+
+Commonly used services to run analytics on S3 data are: Elastic MapReduce (EMR), Redshift Spectrum, Athena, other 3rd party and open source services. Some common reference architectures are outlined below.
 
 
+### Scale Out with Multiple EMR Clusters
+
+Scaling out analytic workloads using multiple EMR clusters is a very common implementation for most of our customers. One of the most common architectural pattern for schema evolution is to run Glue crawler on a S3 prefix to define data schema in Glue catalog. EMR clusters can refer to the catalog to read data from S3.
+
+In some cases, customers already have data in S3  under multiple prefixes and it is hard to leverage Glue crawler to define one table for all similar schema. In such cases, customers may want to define  data catalog in a hive metastore backed by an RDS database that stores custom defined schema as defined by the user. All EMR clusters, may  refer to the same RDS to run data analytics against S3. 
 
 
-### Scale out with multiple EMR clusters
-
-
-#### [Glue Catalog for schema management](/src/data-analytics/multi-emr-on-glue-catalog)
+#### [With Glue Catalog for Schema Management](/src/data-analytics/multi-emr-on-glue-catalog)
 <table><tr><td><a href="/src/data-analytics/multi-emr-on-glue-catalog"><img src="/src/data-analytics/multi-emr-on-glue-catalog/analytics-emr-glue-catalog.png"/></a></td><td>S3 datalake decouples storage from compute. So, it  scales with analytic demands seamlessly by simply adding more compute without affecting availability. This architecture demonstrates how to architect an analytic solution with multiple EMR clusters to query S3 datalake via Glue catalog.</td></tr></table>
 
-#### [Hive metastore on EMR for schema management](/src/data-analytics/multi-emr-on-hive-metastore)
+#### [With Hive Metastore on EMR for Schema Management](/src/data-analytics/multi-emr-on-hive-metastore)
 <table><tr><td><a href="/src/data-analytics/multi-emr-on-hive-metastore"><img src="/src/data-analytics/multi-emr-on-hive-metastore/analytics-emr-hive-metastore.png"/></a></td><td>**Write up to be updated here.**</td></tr></table>
 
-### [AWS Athana on Glue Catalog](/src/data-analytics/amazon-athena)
+### [AWS Athena on Glue Catalog](/src/data-analytics/amazon-athena)
 <table><tr><td><a href="/src/data-analytics/amazon-athena"><img src="/src/data-analytics/amazon-athena/analytics-athena.png"/></a></td><td>Amazon Athena is a server-less query engine to query data in a S3 datalake. Athena uses Glue catalog as metadata store that has mappings of the S3 datasets and its schema. This architecture provides insight on how to setup an analytic system using Amazon Athena.</td></tr></table>
 
 ### [Redshift Spectrum on Glue Catalog](/src/data-analytics/multi-emr-on-hive-metastore)
