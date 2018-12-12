@@ -12,7 +12,7 @@ A data lake is ideally designed with the following characteristics:
 * **Schema less**: A data lake stores structured, semi-structured and unstructured data in the same format as it is generated in the source systems. Such sources systems can be SQL. NoSQL databases, audio/video files or free form text entered to applications. It provides a way to describe any large data pool in which the schema and data requirements are not defined until the data is queried: “just in time” or “**schema on read**”
 * **All data in one place:**  Data lakes are designed to store all data in one place.  They allow *collection of data *that you may or may not use for analytics.
 * It stores unlimited amounts of data in any format **inexpensively.**
-* **It complements enterprise data warehouse(EDW) **and is commonly a data source for the EDW – capturing all data but only passing relevant data to the EDW
+* **It complements enterprise data warehouse(EDW)** and is commonly a data source for the EDW – capturing all data but only passing relevant data to the EDW
 * Allows for data exploration without data model design and ingestion (**Quick user access**)
 
 ## S3 : A Storage Service for Datalake
@@ -31,7 +31,7 @@ Key data lake-enabling features of Amazon S3 include the following:
 * **Standardized APIs** – Amazon S3 RESTful APIs are simple, easy to use, and supported by most major third-party independent software vendors (ISVs), including leading Apache Hadoop and analytics tool vendors. This allows customers to bring the tools they are most comfortable with and knowledgeable about to help them perform analytics on data in Amazon S3.
 
 
-## Schema Management Architecture
+## Schema Management Architectures
 
 The earliest challenges that inhibited building a data lake were keeping track of all of the raw assets as they were loaded into the data lake, and then tracking all of the new data assets and versions that were created by data transformation, data processing, and analytics. Thus, an essential component of an Amazon S3-based data lake is the data catalog. The data catalog provides a query-able interface of all assets stored in the data lake’s S3 buckets. The data catalog is designed to provide a single source of truth about the contents of the data lake.
 
@@ -74,14 +74,14 @@ Commonly used services to run analytics on S3 data are: Elastic MapReduce (EMR),
 
 Scaling out analytic workloads using multiple EMR clusters is a very common implementation for most of our customers. One of the most common architectural pattern for schema evolution is to run Glue crawler on a S3 prefix to define data schema in Glue catalog. EMR clusters can refer to the catalog to read data from S3.
 
-In some cases, customers already have data in S3  under multiple prefixes and it is hard to leverage Glue crawler to define one table for all similar schema. In such cases, customers may want to define  data catalog in a hive metastore backed by an RDS database that stores custom defined schema as defined by the user. All EMR clusters, may  refer to the same RDS to run data analytics against S3. 
+In some cases, customers already have data in S3  under multiple prefixes and it is hard to leverage Glue crawler to define one table for all similar schema. In such cases, customers may want to define  data catalog in a hive metastore backed by an RDS database that stores custom defined schema as defined by the user. All EMR clusters, may  refer to the same RDS to run data analytics against S3.
 
 
 #### [With Glue Catalog for Schema Management](/src/data-analytics/multi-emr-on-glue-catalog)
 <table><tr><td><a href="/src/data-analytics/multi-emr-on-glue-catalog"><img src="/src/data-analytics/multi-emr-on-glue-catalog/analytics-emr-glue-catalog.png"/></a></td><td>S3 datalake decouples storage from compute. So, it  scales with analytic demands seamlessly by simply adding more compute without affecting availability. This architecture demonstrates how to architect an analytic solution with multiple EMR clusters to query S3 datalake via Glue catalog.</td></tr></table>
 
 #### [With Hive Metastore on EMR for Schema Management](/src/data-analytics/multi-emr-on-hive-metastore)
-<table><tr><td><a href="/src/data-analytics/multi-emr-on-hive-metastore"><img src="/src/data-analytics/multi-emr-on-hive-metastore/analytics-emr-hive-metastore.png"/></a></td><td>**Write up to be updated here.**</td></tr></table>
+<table><tr><td><a href="/src/data-analytics/multi-emr-on-hive-metastore"><img src="/src/data-analytics/multi-emr-on-hive-metastore/analytics-emr-hive-metastore.png"/></a></td><td>Sometimes, datalake is built on top of existing data in S3 under multiple buckets and prefixes. So, it is difficult to generate catalog using Glue crawler. In such scenarios, customers may set up a Hive metastore using external RDS database and define custom schemas for analytics on EMR.</td></tr></table>
 
 ### [AWS Athena on Glue Catalog](/src/data-analytics/amazon-athena)
 <table><tr><td><a href="/src/data-analytics/amazon-athena"><img src="/src/data-analytics/amazon-athena/analytics-athena.png"/></a></td><td>Amazon Athena is a server-less query engine to query data in a S3 datalake. Athena uses Glue catalog as metadata store that has mappings of the S3 datasets and its schema. This architecture provides insight on how to setup an analytic system using Amazon Athena.</td></tr></table>
