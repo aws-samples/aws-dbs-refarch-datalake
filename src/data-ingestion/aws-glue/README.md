@@ -4,7 +4,7 @@
 
 WS Glue is a fully managed extract, transform, and load (ETL) service that makes it easy for customers to prepare and load their data for analytics. It can extract data from heterogeneous data sources like RDBMS (RDS, Aurora), Amazon Redshift, Amazon S3 etc. In this architecture, we are using Glue to extract data from relational datasources in a VPC and ingest them in to a S3 data lake backed by S3.
 
-![Data Ingestion Amazon Glue](ingestion-aws-Glue.png)
+![Data Ingestion Amazon Glue](ingestion-aws-glue.png)
 
 ## Architecture Component Walkthrough
 
