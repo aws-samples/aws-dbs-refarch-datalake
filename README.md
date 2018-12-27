@@ -45,7 +45,7 @@ The earliest challenges that inhibited building a data lake were keeping track o
 
 ### [Data Security and Access Control Architectures](/src/data-security-and-protection)
 
-<table><tr><td><a href="/src/working-with-schema"><img src=""/></a></td><td></td></tr></table>
+<table><tr><td><a href="src/data-security-and-protection"><img src="src/data-security-and-protection/data-security-data-protection-using-iam.png"/></a></td><td>Data security and data protection is considered to of paramount importance when it comes to data storage on cloud. AWS has a extensive set of services to secure data in S3. IAM and KMS are widely used to control access and protect content/</td></tr></table>
 
 ## Data Ingestion Architectures
 
@@ -63,9 +63,13 @@ One of the core values of a data lake is that it is the collection point and rep
 ### [Capture DB Changes with DMS (Database Migration Service)](/src/data-ingestion/dms-and-lambda)
 <table><tr><td><a href="/src/data-ingestion/dms-and-lambda"><img src="/src/data-ingestion/dms-and-lambda/ingestion-dms.png"/></a></td><td>CDC(Change data capture)  from relational databases are a very important dataset that are ingested in datalakes. DMS is a CDC tool that's widely used to capture changes from databases. This architecture demonstrates how to use DMS and AWS Lambda to collect and partition dataset in a datalake.  </td></tr></table>
 
+### [Ingest Data from On-Premise NFS servers using AWS DataSync](/src/data-ingestion/aws-datasync-on-prem-nfs)
+<table><tr><td><a href="src/data-ingestion/aws-datasync-on-prem-nfs"><img src="src/data-ingestion/aws-datasync-on-prem-nfs/aws-datasync-from-nfs-on-prem.png"/></a></td><td>AWS DataSync is a fully managed data transfer service that simplifies, automates, and accelerates moving and replicating data between on-premises storage systems and AWS storage services over the internet or AWS Direct Connect. In this architecture we are leveraging AWS DataSync to ingest data in a datalake</td></tr></table>
+
+
 ## Data Analytics Architectures
 
-S3 datalake efficiently decouples storage and compute. Hence, it is easy to build analytic platforms that scale out with increase in demand. Over a period of time, there are many managed and serverless big data services have been developed on AWS to analyze data in S3.
+S3 datalake efficiently decouples storage and compute. Hence, it is easy to build analytic platforms that scale out with increase in demand. Over a period of time, there are many managed and server-less big data services have been developed on AWS to analyze data in S3.
 
 Commonly used services to run analytics on S3 data are: Elastic MapReduce (EMR), Redshift Spectrum, Athena, other 3rd party and open source services. Some common reference architectures are outlined below.
 
