@@ -2,7 +2,7 @@
 
 ## Overview
 
-A data lake is a data repository that stores data in its raw format until it is used for analytics. It is designed to store massive amount of data at scale. A schema to the dataset in data lake is given as part of transformation while reading it. Below is a pictorial representation of a typical data lake on AWS cloud.
+A [**data lake**](https://en.wikipedia.org/wiki/Data_lake) is a data repository that stores data in its raw format until it is used for analytics. It is designed to store massive amount of data at scale. A schema to the dataset in data lake is given as part of transformation while reading it. Below is a pictorial representation of a typical data lake on AWS cloud.
 
 ![Datalake Overview](src/data-lake-overview.png)
 
