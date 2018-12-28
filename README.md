@@ -15,12 +15,12 @@ Data lakes are ideally designed with the following characteristics:
 * **It complements enterprise data warehouse(EDW)** and is commonly a data source for the EDW – **capturing all but only passing relevant data to the EDW**
 * Allows for data exploration without data model design and ingestion-**quick user access**
 
-** NOTE: All contents in this reference achitecture documentation is developed prior to the general availability of [AWS Lake Formation](https://aws.amazon.com/lake-formation/). AWS Lake formation Specific contents would be added once it is available for production use.**
+**NOTE: All contents in this reference achitecture documentation is developed prior to the general availability of [AWS Lake Formation](https://aws.amazon.com/lake-formation/). AWS Lake formation Specific contents would be added once it is available for production use.**
 
 ## S3 : A Storage Service for Datalake
 
 
-[**Amazon S3 **](https://aws.amazon.com/s3/) provides an optimal foundation for a data lake because of its virtually unlimited capacity and scalability. You can seamlessly increase your storage from gigabytes to petabytes without availability disruption and paying only for what you use. Amazon S3 is designed to provide 99.999999999% durability.
+[**Amazon S3**](https://aws.amazon.com/s3/) provides an optimal foundation for a data lake because of its virtually unlimited capacity and scalability. You can seamlessly increase your storage from gigabytes to petabytes without availability disruption and paying only for what you use. Amazon S3 is designed to provide 99.999999999% durability.
 
  It has **scalable performance, ease-of-use features, and native encryption and access control capabilities**. Amazon S3 integrates with a broad portfolio of AWS and third-party ISV data processing tools.
 
