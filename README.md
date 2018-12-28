@@ -15,7 +15,7 @@ Data lakes are ideally designed with the following characteristics:
 * **It complements enterprise data warehouse(EDW)** and is commonly a data source for the EDW – **capturing all but only passing relevant data to the EDW**
 * Allows for data exploration without data model design and ingestion-**quick user access**
 
-**NOTE: All contents in this reference achitecture documentation is developed prior to the general availability of [AWS Lake Formation](https://aws.amazon.com/lake-formation/). AWS Lake formation Specific contents would be added once it is available for production use.**
+**NOTE: All contents in this reference achitecture documentation is developed prior to the general availability of [AWS Lake Formation](https://aws.amazon.com/lake-formation/). AWS Lake Formation specific contents would be added once it is available for production use.**
 
 ## S3 : A Storage Service for Datalake
 
