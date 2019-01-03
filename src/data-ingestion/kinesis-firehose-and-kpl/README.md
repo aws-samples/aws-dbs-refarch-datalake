@@ -9,7 +9,7 @@
 
 ## Architecture Component Walkthrough
 
-1. Your application uses the Kinesis Producer Library to collect records and write to Kinesis Data Streams.
-2. If your application resides in VPC, you can use an Internet Gateway or a [Kinesis VPC Endpoint](https://docs.aws.amazon.com/streams/latest/dev/vpc.html) to access the Kinesis Service
+1. Your application [uses the Kinesis Producer Library](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html) to collect records and write to Kinesis Data Streams.
+2. If your application resides in VPC, you can use an Internet Gateway or a [Kinesis VPC Endpoint](https://docs.aws.amazon.com/streams/latest/dev/vpc.html) to access the Kinesis Service.
 2. Kinesis Firehose is [configured to read data from the Kinesis Data Stream](https://docs.aws.amazon.com/firehose/latest/dev/writing-with-kinesis-streams.html)
 3. Firehose batches records based on count or target file size, and then compresses and encrypts files before delivering to S3
