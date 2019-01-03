@@ -6,48 +6,50 @@ A [**data lake**](https://en.wikipedia.org/wiki/Data_lake) is a data repository 
 
 ![Datalake Overview](src/data-lake-overview.png)
 
-
 Data lakes are ideally designed with the following characteristics:
 
-* **Schema-less**: They store structured, semi-structured and unstructured data in the same format as it is generated in the source systems. Such source systems can be SQL. NoSQL databases, audio/video files, log files or freeform text stored in  applications. It provides a way to describe any large data pool in which the schema and data requirements are not defined until the data is queried: “just in time” or “**schema on read**”
-* **All data at one place:**  Data lakes are designed to store all data in one place.  They allow **collection of data **that you may or may not use for analytics.
-* It stores unlimited amounts of data in any format **inexpensively.**
-* **It complements enterprise data warehouse(EDW)** and is commonly a data source for the EDW – **capturing all but only passing relevant data to the EDW**
-* Allows for data exploration without data model design and ingestion-**quick user access**
+* **Schemaless**: They store structured, semi-structured and unstructured data in the same format as it is generated in the source systems. Such source systems can be SQL. NoSQL databases, audio/video files, log files or freeform text stored in  applications. It provides a way to describe any large data pool in which the schema and data requirements are not defined until the data is queried: “just in time” or “**schema on read**”
+* **All data in one place:**  Data lakes are designed to store all data in one place.  They allow **collection of data** that you may or may not use for analytics.
+* It stores unlimited amounts of data in any format **inexpensively**.
+* **It complements enterprise data warehouse(EDW)** and is commonly a data source for the EDW – **capturing all data but only passing relevant data to the EDW**.
+* Allows for data exploration without data model design and ingestion to support **quick user access**.
 
 _**Please NOTE**: All content in this reference achitecture has been developed prior to the general availability of [AWS Lake Formation](https://aws.amazon.com/lake-formation). AWS Lake Formation specific content will be added once it is available for production use, and in the meantime please see the [Datalake Solution](https://aws.amazon.com/answers/big-data/data-lake-solution) for a fully automated data lake that you can run as-is, or extend to meet your requirements_
 
 ## Amazon Simple Storage Service (S3): Foundation Storage for Datalakes
 
-[**Amazon S3**](https://aws.amazon.com/s3/) provides an optimal foundation for a data lake because of its virtually unlimited capacity and scalability. You can seamlessly increase your storage from gigabytes to petabytes without availability disruption and paying only for what you use. Amazon S3 is designed to provide 99.999999999% durability.
+[**Amazon S3**](https://aws.amazon.com/s3) provides an optimal foundation for a data lake because of its virtually unlimited capacity and scalability. You can seamlessly increase your storage from gigabytes to petabytes without availability disruption and paying only for what you use. Amazon S3 is designed to provide 99.999999999% durability.
 
- It has **scalable performance, ease-of-use features, and native encryption and access control capabilities**. Amazon S3 integrates with a broad portfolio of AWS and third-party ISV data processing tools.
+ It has **scalable performance, ease-of-use features, and native encryption and access control capabilities**. Amazon S3 integrates with a broad portfolio of AWS and third-party data processing tools.
 
 Key data lake enabling features of Amazon S3 include the following:
 
-* **Data security and data protection** – Data security in AWS is controlled by IAM. Fine grained access control on S3 objects can be defined by using IAM  users, roles and groups. Tagging can be used to manage access on group of objects.  S3 protects data by server side encryption(SSE) and Client side encryption (CSE) with KMS key or custom managed key. Data protection and security on S3 has been discussed in detail [here](src/data-security-and-protection)
-
-* **Storage and compute is decoupled** – In traditional big data and data warehouse solutions, storage and compute are tightly coupled that limits its scalability. With Amazon S3, you can cost-effectively store data in read-optimized columnar formats like Parquet, ORC. You can then launch as many or as few virtual servers as you need using Amazon [Elastic Compute Cloud (EC2)](https://aws.amazon.com/ec2/) or [Elastic MapReduce (EMR)](https://aws.amazon.com/emr/). You can also use AWS analytics tools like [Amazon Athena](https://aws.amazon.com/athena/), [Amazon Redshift](https://aws.amazon.com/redshift/) or [AWS Glue](https://aws.amazon.com/glue/) to process/analyze your data. You can optimize your EC2/EMR instances to provide the right ratios of CPU, memory, and network bandwidth for best performance.
+* [**Data Security and Protection**](src/data-security-and-protection) – Data security in AWS is controlled by the [Identity and Access Management (IAM) service](https://aws.amazon.com/iam). Fine grained access control on S3 objects can be defined by using IAM users, roles and groups. Tagging can be used to manage access on group of objects. S3 can further protect data through the use of server side encryption (SSE), or Client side encryption (CSE) with KMS key or customer managed keys. 
+* **Storage and compute is decoupled** – In traditional big data and data warehouse solutions, storage and compute are tightly coupled in a way that can limit scalability. With Amazon S3, you can cost-effectively store data in original application formats such as XML, JSON, or CSV, as well as read-optimized columnar formats like Parquet and ORC. You can then launch as many or as few virtual servers as you need using Amazon [Elastic Compute Cloud (EC2)](https://aws.amazon.com/ec2) or [Elastic MapReduce (EMR)](https://aws.amazon.com/emr/) to process this data. Alternatively, you can use AWS analytics tools like [Amazon Athena](https://aws.amazon.com/athena), [Amazon Redshift](https://aws.amazon.com/redshift) or [AWS Glue](https://aws.amazon.com/glue) to process and analyze your data without having to manage servers. 
 * **Centralized data architecture** – Amazon S3 makes it easy to build a multi-tenant environment, where many users can bring their own data analytic tools to a common set of data. This improves both cost and data governance over that of traditional solutions, which require multiple copies of data to be distributed across multiple processing platforms.
 * **Integration with other AWS services** – Use Amazon S3 with [Amazon Athena](https://aws.amazon.com/athena/), [Amazon Redshift](https://aws.amazon.com/redshift/), [Amazon Rekognition](https://aws.amazon.com/rekognition/), [Amazon Transcribe](https://aws.amazon.com/transcribe/) and [AWS Glue](https://aws.amazon.com/glue/) etc. to analyze and process data. Amazon S3 also integrates with [AWS Lambda](https://aws.amazon.com/lambda/) serverless computing to run code without provisioning or managing servers. With all of these capabilities, you only pay for the actual amounts of data you process or for the compute time that you consume.
-* **Standardized APIs** – [Amazon S3 RESTful APIs](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html) are simple, easy to use, and supported by most major third-party independent software vendors (ISVs), including leading [Apache Hadoop](https://hadoop.apache.org/) and analytics tool vendors. This allows customers to bring the tools they are most comfortable with and knowledgeable about to help them perform analytics on data in Amazon S3.
+* **Standardized APIs** – [Amazon S3 APIs](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html) are simple, easy to use, and supported by most major third-party software tools, including Hadoop, Spark, and Kafka distributions. This allows customers to bring the tools they are most comfortable with and knowledgeable about to perform analytics on data in Amazon S3.
 
 ## Schema Management Architectures
 
-Keeping track of all of the raw assets that are loaded into S3, and then tracking all of the new data assets and versions that were created by data transformation, data processing, and analytics can be a major challenge. Thus, an essential component of an Amazon S3-based data lake is a data catalog. The data catalog provides a query-able interface of all assets stored in the data lake’s S3 buckets. The data catalog is designed to provide a single source of truth about the contents of the data lake, and rather than reasoning about storage locations and prefixes, a data catalog lets you design more familiar structures of databases, tables, and partitions.
+Keeping track of all of the raw assets that are loaded into S3, and then tracking all of the new data assets and versions that are created by data transformation, data processing, and analytics can be a major challenge. An essential component of an Amazon S3 based data lake is a data catalog. A data catalog is designed to provide a single source of truth about the contents of the data lake, and rather than end users reasoning about storage buckets and prefixes, a data catalog lets them interact with more familiar structures of databases, tables, and partitions.
 
 There are two general forms of a data catalog:
 
 * Fully Managed: [AWS Glue Catalog](https://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) is a fully managed data catalog whose contents are generated by running crawlers over S3 datasets. The Glue Data Catalog contains information about data assets that have been transformed into formats and table definitions that are usable by analytics tools like Amazon Athena, Amazon Redshift, Amazon Redshift Spectrum, and Amazon EMR.
-* End User Hosted: A Hive Metastore Catalog (HCatalog) provides the ability to consume storage locations on Amazon S3 and on HDFS filesystems through the lanugage of databases and tables. However, it is managed and maintained by the operator of the AWS Account, and can be run through [Amazon EMR and Amazon RDS](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-metastore-external-hive.html). In most cases, AWS does not recommend user managed HCatalogs due to the requirement for you top operate it, as well as the need to scale the solution, and the lack of native integration with some AWS analytic tools.
+* End User Managed: A Hive Metastore Catalog (HCatalog) provides the ability to consume storage locations on Amazon S3 and on HDFS filesystems through the lanugage of databases and tables. However, it is managed and maintained by the operator of the AWS Account, and can be run through [Amazon EMR and Amazon RDS](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-metastore-external-hive.html). In most cases, AWS does not recommend user managed HCatalogs due to the requirement for you top operate it, as well as the need to scale the solution, and the lack of native integration with some AWS analytic tools.
+
+Customers typically use the managed Glue Crawler to populate the catalog with the contents of Amazon S3. Then, multiple AWS services can run query the contents of the datalake via the Glue catalog.
+
+![Glue Data Catalog](src/working-with-schema/working-with-schemas.png)
 
 ### Schema Management with AWS Glue Catalog
 
-AWS Glue Catalog is a metadata store which can support datalake schema evolution, which means that it can understand the definition of a table over time, even when new columns and attributes are added. Customers typically use the managed Glue Crawler to populate the catalog with the contents of Amazon S3. Then, multiple AWS services can run query the contents of the datalake via the Glue catalog.
+AWS Glue Catalog can support datalake schema evolution, which means that it can understand the definition of a table over time, even when new columns and attributes are added. 
 
-Below is a schematic diagram to illustrate how multiple AWS services are integrated with Glue catalog to provide analytic support on S3 datalake.
+<img src="src/working-with-schema/glue-schema-evolution.png" width=700/>
 
-![Glue Data Catalog](src/working-with-schema/working-with-schemas.png)
+You can read more about dealing with schemas that change over time in the [Athena user guide](https://docs.aws.amazon.com/athena/latest/ug/handling-schema-updates-chapter.html).
 
 ### [Data Security and Access Control Architectures](/src/data-security-and-protection)
 
