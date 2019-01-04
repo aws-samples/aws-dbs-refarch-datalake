@@ -2,37 +2,25 @@
 
 ## Overview
 
-A [**data lake**](https://en.wikipedia.org/wiki/Data_lake) is a data repository that stores data in its raw format until it is used for analytics. It is designed to store massive amount of data at scale. A schema to the dataset in data lake is given as part of transformation while reading it. Below is a pictorial representation of a typical data lake on AWS cloud.
+A [**datalake**](https://en.wikipedia.org/wiki/Data_lake) is a data repository that stores data in its raw format until it is used for analytics. It is designed to store massive amount of data at scale. A schema to the dataset in data lake is given as part of transformation while reading it. Below is a pictorial representation of a typical datalake on AWS cloud.
 
 ![Datalake Overview](src/data-lake-overview.png)
 
 Data lakes are ideally designed with the following characteristics:
 
-* **Schemaless**: They store structured, semi-structured and unstructured data in the same format as it is generated in the source systems. Such source systems can be SQL. NoSQL databases, audio/video files, log files or freeform text stored in  applications. It provides a way to describe any large data pool in which the schema and data requirements are not defined until the data is queried: “just in time” or “**schema on read**”
-* **All data in one place:**  Data lakes are designed to store all data in one place.  They allow **collection of data** that you may or may not use for analytics.
-* It stores unlimited amounts of data in any format **inexpensively**.
-* **It complements enterprise data warehouse(EDW)** and is commonly a data source for the EDW – **capturing all data but only passing relevant data to the EDW**.
-* Allows for data exploration without data model design and ingestion to support **quick user access**.
+* [**Secure**](src/data-security-and-protection) – Datalakes must implement strong security to enable broad adoption across your business. Datalakes must implement strong [Identity](https://aws.amazon.com/iam) controls, enable Fine Grained Access to data, and support encrypting your data. 
+* **Centralised:**  Data lakes are designed to store all data in one place, and enable the sharing of data across your Orgainsations or Business Units. Those business units may also have their own private Datalakes, but data should ultimately flow to a central source for sharing across the business.
+* **Flexible:** Datalakes will capture data from any source system, including Relational and NoSQL databases, audio/video files, log files, freeform text, or any other type of data managed by your applications. They store structured, semi-structured and unstructured data in the same format as it is generated in the source systems, and provide a way to access data where the format and structure of the data are not defined until the data is queried: “just in time” or “**schema on read**”
+* **Cost Effective:** Datalakes store a virtually unlimited amount of data in any format inexpensively, and provide you tooking to manage the data lifecycle for cost optimisation, as well as offering cost transparency.
+* **An Analytics Ecosystem Foundation:** Datalakes are commonly a data source for an Enterprise Data Warehouse (EDW), that captures all your data but only passes on high value, conformed, and relevant data to the EDW.
+* **Decoupled from Compute:** – In traditional big data and data warehouse solutions, storage and compute are tightly coupled in a way that can limit scalability. With a datalake, you store, secure, and index your data to enable data exploration by a virtually unlimited number of clients. These customers may run Big Data Ecosystem Tools on multiple [Amazon EMR](https://aws.amazon.com/emr/) clusters, run serverless queries with [Amazon Athena](https://aws.amazon.com/athena), [Amazon Redshift](https://aws.amazon.com/redshift) or [AWS Glue](https://aws.amazon.com/glue), or use legacy analytics tools on [Amazon Elastic Compute Cloud (EC2)](https://aws.amazon.com/ec2) or
+* **Integrated:** – Your datalake should enable exploration by virtually any analytical tool, and support access using common an open data formats and API's
 
 _**Please NOTE**: All content in this reference achitecture has been developed prior to the general availability of [AWS Lake Formation](https://aws.amazon.com/lake-formation). AWS Lake Formation specific content will be added once it is available for production use, and in the meantime please see the [Datalake Solution](https://aws.amazon.com/answers/big-data/data-lake-solution) for a fully automated data lake that you can run as-is, or extend to meet your requirements_
 
-## Amazon Simple Storage Service (S3): Foundation Storage for Datalakes
-
-[**Amazon S3**](https://aws.amazon.com/s3) provides an optimal foundation for a data lake because of its virtually unlimited capacity and scalability. You can seamlessly increase your storage from gigabytes to petabytes without availability disruption and paying only for what you use. Amazon S3 is designed to provide 99.999999999% durability.
-
- It has **scalable performance, ease-of-use features, and native encryption and access control capabilities**. Amazon S3 integrates with a broad portfolio of AWS and third-party data processing tools.
-
-Key data lake enabling features of Amazon S3 include the following:
-
-* [**Data Security and Protection**](src/data-security-and-protection) – Data security in AWS is controlled by the [Identity and Access Management (IAM) service](https://aws.amazon.com/iam). Fine grained access control on S3 objects can be defined by using IAM users, roles and groups. Tagging can be used to manage access on group of objects. S3 can further protect data through the use of server side encryption (SSE), or Client side encryption (CSE) with KMS key or customer managed keys. 
-* **Storage and compute is decoupled** – In traditional big data and data warehouse solutions, storage and compute are tightly coupled in a way that can limit scalability. With Amazon S3, you can cost-effectively store data in original application formats such as XML, JSON, or CSV, as well as read-optimized columnar formats like Parquet and ORC. You can then launch as many or as few virtual servers as you need using Amazon [Elastic Compute Cloud (EC2)](https://aws.amazon.com/ec2) or [Elastic MapReduce (EMR)](https://aws.amazon.com/emr/) to process this data. Alternatively, you can use AWS analytics tools like [Amazon Athena](https://aws.amazon.com/athena), [Amazon Redshift](https://aws.amazon.com/redshift) or [AWS Glue](https://aws.amazon.com/glue) to process and analyze your data without having to manage servers. 
-* **Centralized data architecture** – Amazon S3 makes it easy to build a multi-tenant environment, where many users can bring their own data analytic tools to a common set of data. This improves both cost and data governance over that of traditional solutions, which require multiple copies of data to be distributed across multiple processing platforms.
-* **Integration with other AWS services** – Use Amazon S3 with [Amazon Athena](https://aws.amazon.com/athena/), [Amazon Redshift](https://aws.amazon.com/redshift/), [Amazon Rekognition](https://aws.amazon.com/rekognition/), [Amazon Transcribe](https://aws.amazon.com/transcribe/) and [AWS Glue](https://aws.amazon.com/glue/) etc. to analyze and process data. Amazon S3 also integrates with [AWS Lambda](https://aws.amazon.com/lambda/) serverless computing to run code without provisioning or managing servers. With all of these capabilities, you only pay for the actual amounts of data you process or for the compute time that you consume.
-* **Standardized APIs** – [Amazon S3 APIs](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html) are simple, easy to use, and supported by most major third-party software tools, including Hadoop, Spark, and Kafka distributions. This allows customers to bring the tools they are most comfortable with and knowledgeable about to perform analytics on data in Amazon S3.
-
 ## Schema Management Architectures
 
-Keeping track of all of the raw assets that are loaded into S3, and then tracking all of the new data assets and versions that are created by data transformation, data processing, and analytics can be a major challenge. An essential component of an Amazon S3 based data lake is a data catalog. A data catalog is designed to provide a single source of truth about the contents of the data lake, and rather than end users reasoning about storage buckets and prefixes, a data catalog lets them interact with more familiar structures of databases, tables, and partitions.
+Keeping track of all of the raw assets that are loaded into your datalake, and then tracking all of the new data assets and versions that are created by data transformation, data processing, and analytics can be a major challenge. An essential component of an Amazon S3 based data lake is a Data Catalog. A data catalog is designed to provide a single source of truth about the contents of the data lake, and rather than end users reasoning about storage buckets and prefixes, a data catalog lets them interact with more familiar structures of databases, tables, and partitions.
 
 There are two general forms of a data catalog:
 
