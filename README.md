@@ -18,6 +18,10 @@ Data lakes are ideally designed with the following characteristics:
 
 _**Please NOTE**: All content in this reference achitecture has been developed prior to the general availability of [AWS Lake Formation](https://aws.amazon.com/lake-formation). AWS Lake Formation specific content will be added once it is available for production use, and in the meantime please see the [Datalake Solution](https://aws.amazon.com/answers/big-data/data-lake-solution) for a fully automated data lake that you can run as-is, or extend to meet your requirements_
 
+## Designing your Datalake Storage Layer
+
+<table><tr><td><a href="src/storage-foundation"><img src="src/storage-foundation/storage-foundation.png"/></a></td><td>Amazon S3 provides the ideal datalake storage foundation by offering a highly scalable, durable, and secure environment for any type of data. It is strongly integrated with identity services in IAM, encryption services from KMS, and both internal AWS as well as third-party analytic services natively integrate with its API's. Click <a href="src/storage-foundation">here</a> to learn more about best practices for the foundation storage architecture of a datalake in S3.</td></tr></table>
+
 ## Schema Management Architectures
 
 Keeping track of all of the raw assets that are loaded into your datalake, and then tracking all of the new data assets and versions that are created by data transformation, data processing, and analytics can be a major challenge. An essential component of an Amazon S3 based data lake is a Data Catalog. A data catalog is designed to provide a single source of truth about the contents of the data lake, and rather than end users reasoning about storage buckets and prefixes, a data catalog lets them interact with more familiar structures of databases, tables, and partitions.
