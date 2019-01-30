@@ -1,0 +1,22 @@
+# Table of contents
+
+* [AWS Datalake  Reference Architectures](README.md)
+* [src](src/README.md)
+  * [data-ingestion](src/data-ingestion/README.md)
+    * [Data Ingestion using Kinesis Firehose and Kinesis Producer Library \(KPL\)](src/data-ingestion/kinesis-firehose-and-kpl.md)
+    * [Data Ingestion using Database Migration Service\(DMS\) and Lambda](src/data-ingestion/dms-and-lambda.md)
+    * [Data Ingestion using Amazon Glue](src/data-ingestion/aws-glue.md)
+    * [Data Ingestion From On-Premise NFS using Amazon DataSync](src/data-ingestion/aws-datasync-on-prem-nfs.md)
+  * [README](src/working-with-schema.md)
+  * [Data security and access control](src/data-security-and-protection.md)
+  * [data-analytics](src/data-analytics/README.md)
+    * [Query S3 Data lake using Athena and Glue Catalog](src/data-analytics/amazon-athena.md)
+    * [Query Data lake using Redshift Spectrum and Glue Catalog](src/data-analytics/redshift-spectrum.md)
+    * [Query Data lake using EMR and External Hive Metastore in VPC](src/data-analytics/multi-emr-on-hive-metastore.md)
+    * [Query Data lake using EMR and Glue Catalog](src/data-analytics/multi-emr-on-glue-catalog.md)
+  * [Datalake Storage Foundation Architecture](src/storage-foundation.md)
+* [Code of Conduct](code_of_conduct.md)
+* [Contributing Guidelines](contributing.md)
+* [.github](.github/README.md)
+  * [PULL\_REQUEST\_TEMPLATE](.github/pull_request_template.md)
+
