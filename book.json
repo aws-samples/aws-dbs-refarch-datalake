@@ -1,5 +1,4 @@
-{ "root": "./",
-  "plugins": ["get-book"],
+{ "plugins": ["get-book"],
   "pluginsConfig": {
     "get-book": {
       "url": "URL_TO_BOOK.PDF",
