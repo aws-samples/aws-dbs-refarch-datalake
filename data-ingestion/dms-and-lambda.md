@@ -4,7 +4,7 @@
 
 The [AWS Database Migration Service\(DMS\)](https://aws.amazon.com/dms/) is a managed service to migrate data into AWS. It can replicate data from operational databases and data warehouses \(on premises or AWS\) to a variety of targets, including S3 datalakes. In this architecture, DMS is used to capture changed records from relational databases on RDS or EC2 and write them into S3. [AWS Lambda](https://aws.amazon.com/lambda/), a serverless compute service, is used to transform and partition datasets based on their arrival time in S3 for better query performance.
 
-![Data Ingestion using DMS and Lambda](../../.gitbook/assets/ingestion-dms.png)
+![Data Ingestion using DMS and Lambda](../.gitbook/assets/ingestion-dms.png)
 
 ## Architecture Component Walkthrough
 

@@ -6,7 +6,7 @@
 
 Spectrum is integrated with AWS Glue Data Catalog. The Spectrum external table definitions are stored in Glue Catalog and accessible to the Redshift cluster through an 'external schema'. In this reference architecture, we are going to explain how to leverage Amazon Redshift Spectrum to query S3 data through a Redshift cluster in a VPC.
 
-![Query Data lake using Spectrum](../../.gitbook/assets/analytics-redshift-spectrum.png)
+![Query Data lake using Spectrum](../.gitbook/assets/analytics-redshift-spectrum.png)
 
 ## Architecture Component Walkthrough
 

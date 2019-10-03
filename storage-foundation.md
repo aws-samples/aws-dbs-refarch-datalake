@@ -1,4 +1,4 @@
-# Datalake Storage Foundation Architecture
+# Amazon S3: A Storage Foundation for Datalakes on AWS
 
 [Amazon Simple Storage Service \(Amazon S3\)](https://aws.amazon.com/s3) is an object storage service that offers industry-leading scalability, data availability, security, and performance. This means customers of all sizes and industries can use it to store and protect any amount of data for a range of use cases, such as websites, mobile applications, backup and restore, archive, enterprise applications, IoT devices, and big data analytics. Amazon S3 provides easy-to-use management features so you can organize your data and configure finely-tuned access controls to meet your specific business, organizational, and compliance requirements. Amazon S3 is designed for 99.999999999% \(11 9's\) of durability, and stores data for millions of applications for companies all around the world.
 
@@ -30,11 +30,11 @@ Most customers find that they have differing security requirements based upon th
 * **Strongly modelled data** - fit for loading into an Enterprise Data Warehouse or for building financial reports
 * **Sharing locations** - where your internal customers can create obfuscated, tokenised, anonymised, or subset datasets for sharing internally or with third-parties
 
-![BucketLifecycle.png](../.gitbook/assets/bucketlifecycle.png)
+![BucketLifecycle.png](.gitbook/assets/bucketlifecycle.png)
 
 Alternatively, you may find that all of your datalake lifecycle locations can be managed through prefixes alone.
 
-![PrefixLifecycle.png](../.gitbook/assets/prefixlifecycle.png)
+![PrefixLifecycle.png](.gitbook/assets/prefixlifecycle.png)
 
 ### What should your Prefixes look like?
 
@@ -90,7 +90,7 @@ If your system exhibits your behaviour, then you should consider the location wr
 
 ## Overview of Datalake Storage Structure
 
-![Overview](../.gitbook/assets/overview.png)
+![Overview](.gitbook/assets/overview.png)
 
 January 3rd, 2019's Orders will be found at:
 

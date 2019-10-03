@@ -2,11 +2,11 @@
 
 ## Overview
 
-[Amazon EMR](https://aws.amazon.com/emr/) is a managed Hadoop framework in AWS. Hive is a data infrastructure tool to process structured/semistructured data in Hadoop using SQL like query language. Hive stores and manages schema metadata using a 'metastore' service backed by a relational database. In a datalake environment, it is essential to have a centralized schema repository which translates storage locations on S3 or HDFS into a model of Databases, Tables, and Partitions that can be used in SQL. Most AWS customers [leverage AWS Glue](multi-emr-on-glue-catalog.md) as an external catalog due to ease of use. However, customers may want to set up their own self-managed Data Catalog due to reasons outlined [here](../../).
+[Amazon EMR](https://aws.amazon.com/emr/) is a managed Hadoop framework in AWS. Hive is a data infrastructure tool to process structured/semistructured data in Hadoop using SQL like query language. Hive stores and manages schema metadata using a 'metastore' service backed by a relational database. In a datalake environment, it is essential to have a centralized schema repository which translates storage locations on S3 or HDFS into a model of Databases, Tables, and Partitions that can be used in SQL. Most AWS customers [leverage AWS Glue](multi-emr-on-glue-catalog.md) as an external catalog due to ease of use. However, customers may want to set up their own self-managed Data Catalog due to reasons outlined [here](../).
 
 In this architecture, we will provide a walkthrough of how to set up a centralized schema repository using EMR with [Amazon RDS Aurora](https://aws.amazon.com/rds/aurora). Once created, multiple EMR clusters can execute queries against the same schema metadata. To avoid accidental schema metadata loss/corruption, it is recommended that you provide database write access to one EMR cluster only.
 
-![Query Data lake using EMR and External Hive Metastore](../../.gitbook/assets/analytics-emr-hive-metastore.png)
+![Query Data lake using EMR and External Hive Metastore](../.gitbook/assets/analytics-emr-hive-metastore.png)
 
 ## Architecture  Walkthrough
 

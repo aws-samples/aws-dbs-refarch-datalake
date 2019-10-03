@@ -6,7 +6,7 @@
 
 In this architecture, we are using AWS Glue to extract data from relational datasources in a VPC and ingest them in to a S3 data lake backed by S3.
 
-![Data Ingestion Amazon Glue](../../.gitbook/assets/ingestion-aws-glue.png)
+![Data Ingestion Amazon Glue](../.gitbook/assets/ingestion-aws-glue.png)
 
 ## Architecture Component Walkthrough
 

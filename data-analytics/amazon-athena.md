@@ -4,7 +4,7 @@
 
 [Amazon Athena](https://aws.amazon.com/athena/) is a serverless interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL. Athena is out-of-the-box integrated with AWS Glue Data Catalog, which makes it very fast and easy to start running queries against your datalake. This is one of the simplest data lake architectures, as Amazon Athena is natively integrated with S3 data through the [AWS Glue Catalog](https://aws.amazon.com/glue/). [Glue Crawlers](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) can be optionally used to create and maintain the data catalog.
 
-![Query S3 Data lake using Athena](../../.gitbook/assets/analytics-athena.png)
+![Query S3 Data lake using Athena](../.gitbook/assets/analytics-athena.png)
 
 ## Architecture Component Walkthrough
 

@@ -6,7 +6,7 @@
 
 In this architecture, we = walk you through how to use AWS DataSync and DataSync Agent to migrate data to a datalake in Amazon S3.
 
-![Data Ingestion Amazon Glue](../../.gitbook/assets/aws-datasync-from-nfs-on-prem.png)
+![Data Ingestion Amazon Glue](../.gitbook/assets/aws-datasync-from-nfs-on-prem.png)
 
 ## Architecture Component Walkthrough
 

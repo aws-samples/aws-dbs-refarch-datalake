@@ -1,4 +1,4 @@
-# Data security and access control
+# Storage level Security and Access Control with IAM
 
 Building a datalake and making it the centralized repository for assets that were previously duplicated and placed across many siloes of smaller platforms and groups of users requires implementing stringent and fine-grained security and access controls, along with methods to protect and manage the data assets. A datalake solution on AWS with Amazon S3 as its core provides a robust set of features and services to secure and protect your data against both internal and external threats, even in large, multi-tenant environments. Additionally, innovative Amazon S3 data management features enable automation and scaling of data lake storage, even when it contains billions of objects and petabytes of data assets.
 

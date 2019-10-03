@@ -6,7 +6,7 @@
 
 [Kinesis Data Firehose](https://aws.amazon.com/kinesis/data-firehose/) is fully managed service that [delivers data to target locations](https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html) including Amazon S3, Redshift, and the ElasticSearch Service. The [Kinesis Producer Library \(KPL\)](https://github.com/awslabs/amazon-kinesis-producer) simplifies producer application development, allowing developers to achieve high write throughput to a Kinesis Data Stream. In this example, KPL is used to write data to a Kinesis Data Stream from the producer application. Kinesis Firehose then reads this stream and batches incoming records into files and delivers them to S3 based on file buffer size/time limit defined in the Firehose configuration.
 
-![Ingestion using Kinesis Firehose and KPL](../../.gitbook/assets/ingestion-kinesis-and-kpl.png)
+![Ingestion using Kinesis Firehose and KPL](../.gitbook/assets/ingestion-kinesis-and-kpl.png)
 
 ## Architecture Component Walkthrough
 

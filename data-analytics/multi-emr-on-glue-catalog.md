@@ -8,7 +8,7 @@ In a datalake environment, it is essential to have a central schema repository o
 
 In this architecture, we show how to leverage AWS Glue Data Catalog to execute queries against S3 datalake by using multiple EMR clusters in [virtual private cloud \(VPC\)](https://aws.amazon.com/vpc/).
 
-![Query Data lake using EMR and Glue Catalog](../../.gitbook/assets/analytics-emr-glue-catalog.png)
+![Query Data lake using EMR and Glue Catalog](../.gitbook/assets/analytics-emr-glue-catalog.png)
 
 ## Architecture  Walkthrough
 
