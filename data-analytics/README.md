@@ -5,5 +5,15 @@ description: >-
   of truth.
 ---
 
-# Datalake Data Consumption Architectures
+# Data Consumption Architectures
+
+## How can I know my consumption requirements upfront?
+
+
+
+## What is my best bet when requirements are unknown?
+
+
+
+## What are the key capabilities to look for in a data consumption service?
 

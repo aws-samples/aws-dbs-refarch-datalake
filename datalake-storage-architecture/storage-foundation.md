@@ -12,7 +12,7 @@ Amazon S3 provides the ideal datalake storage foundation by offering a highly sc
 * **Prefix**: '/' \(Slash\) delimited path where an Object is stored within the Bucket. The combination of the Bucket Name, Prefix, and Object Name uniquely identify the Object globally
 * **Bucket Policy**: S3 can store security Policies in the form of JSON documents which allow you to control which users and roles can access the bucket, and how, as well as setting requirements for how data is stored in the Bucket \(for example requiring encryption\).
 
-## Designing your Datalake
+## Designing Datalake Storage
 
 Amazon S3 provides you a simple and powerful mechanism for organising your data in a Region through Buckets and Prefixes. When designing your Datalake, you need to carefully design how data should be laid out in S3, and consider how multiple Regions data will need to interact. Typically it's considered a best practice for a global datalake to lay out data in the same way regardless of Region.
 
@@ -30,24 +30,24 @@ Most customers find that they have differing security requirements based upon th
 * **Strongly modelled data** - fit for loading into an Enterprise Data Warehouse or for building financial reports
 * **Sharing locations** - where your internal customers can create obfuscated, tokenised, anonymised, or subset datasets for sharing internally or with third-parties
 
-![BucketLifecycle.png](.gitbook/assets/bucketlifecycle.png)
+![BucketLifecycle.png](../.gitbook/assets/bucketlifecycle.png)
 
 Alternatively, you may find that all of your datalake lifecycle locations can be managed through prefixes alone.
 
-![PrefixLifecycle.png](.gitbook/assets/prefixlifecycle.png)
+![PrefixLifecycle.png](../.gitbook/assets/prefixlifecycle.png)
 
 ### What should your Prefixes look like?
 
 If you use the second option, or in your Cleansed and Conformed storage Buckets, you should carefully design the prefix structure to support the required security and data separation model. For the rest of this guide, we'll assume that you are using a single S3 Bucket for everything in the datalake, which as pictured above makes the first level of the prefix the 'lifecycle' stage of the data.
 
-The second level of ownership is typically around business units, in that while data is shared within your datalake, it should also be owned by someone, and this information filters into the prefix layout and security model appleid to the data. You should also consider that while datalakes support unstructured and semi-structured data, analytical and data exploration tools in the Hadoop and Spark ecosystem, via a Data Catalog, typically expect to find data of similar structure stored at the same location. Finally, these same tools support partitioning based upon the value of attributes of the data, and this can significantly improve performance for your analytical users.
+The second level of ownership is typically around business units, in that while data is shared within your datalake, it should also be owned by someone, and this information filters into the prefix layout and security model applied to the data. You should also consider that while datalakes support unstructured and semi-structured data, analytical and data exploration tools in the Hadoop and Spark ecosystem, via a Data Catalog, typically expect to find data of similar structure stored at the same location. Finally, these same tools support partitioning based upon the value of attributes of the data, and this can significantly improve performance for your analytical users.
 
 For shared Buckets, this results in a best practice of having a prefix hierarchy for your datalake such as:
 
 1. **Lifecycle Stage** - the name of the stage of the data, such as `apps` for application storage, or `import` for ingestion.
 2. **Application Owner** - the name of the business unit or steward for the data. This value should be decided up front, and have a relatively low cardinality, like `hr`, `marketing`, or `finance`.
 3. **Data Type** - for all conformed data, this would represent the strongly typed name of the data, such as `customer`, or `orders`
-4. **Time** - it is extremely common, expecially for prefixes that include a very large amount of data, to partition the storage prefixes by a notion of time. See the next section for more details.
+4. **Time** - it is extremely common, especially for prefixes that include a very large amount of data, to partition the storage prefixes by a notion of time. See the next section for more details.
 
 You may also choose to introduce a prefix for collections of data under the Application Owner, such as `logs`, or on the basis of an application name. Furthermore, you may choose to implement the concept of schemas and databases above the level of Data Type. In either case, you should consider these to be concepts that are applied to all the data on the basis of the top level prefix \(data lifecycle\), and this storage policy should be mandated and governed across the system.
 
@@ -55,7 +55,7 @@ You may also choose to introduce a prefix for collections of data under the Appl
 
 As mentioned above, for large datasets you should implement time based partitioning. This offers a nice general navigation mechanism, as well as reduce the amount of data that must be `list`ed before you can access a set of files. This can significantly improve performance for query users and reduce cost.
 
-In nearly all cases, you should implement partitioning at the month level, but you may also find daily granuarlity to be helpful. Very large datasets where you typically only look at very recent data can be further partitioned by Hour, but it's rarely beneficial to partition by Minute or Second. By understanding the timeframe of queries typically executed against the storage location, you can choose the right granularity for your prefixes. Keep in mind that regardless of what your partitioning structure is in the prefixes, you will still capture all the data. It just means that you will potentially create more files, that allow you to be more selective about the timeframe you are accessing when data is read.
+In nearly all cases, you should implement partitioning at the month level, but you may also find daily granuarity to be helpful. Very large datasets where you typically only look at very recent data can be further partitioned by Hour, but it's rarely beneficial to partition by Minute or Second. By understanding the timeframe of queries typically executed against the storage location, you can choose the right granularity for your prefixes. Keep in mind that regardless of what your partitioning structure is in the prefixes, you will still capture all the data. It just means that you will potentially create more files, that allow you to be more selective about the timeframe you are accessing when data is read.
 
 #### Static vs Dynamic Partition Values
 
@@ -90,7 +90,7 @@ If your system exhibits your behaviour, then you should consider the location wr
 
 ## Overview of Datalake Storage Structure
 
-![Overview](.gitbook/assets/overview.png)
+![Overview](../.gitbook/assets/overview.png)
 
 January 3rd, 2019's Orders will be found at:
 

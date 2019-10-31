@@ -26,7 +26,7 @@ _**Please NOTE**: All content in this reference achitecture has been developed p
 
 ## Designing your Datalake Storage Layer
 
-| [![](.gitbook/assets/thumbnail%20%281%29.png)](storage-foundation.md) | Amazon S3 provides the ideal datalake storage foundation by offering a highly scalable, durable, and secure environment for any type of data. It is strongly integrated with identity services in IAM, encryption services from KMS, and both internal AWS as well as third-party analytic services natively integrate with its API's. Click [here](storage-foundation.md) to learn more about best practices for the foundation storage architecture of a datalake in S3. |
+| [![](.gitbook/assets/thumbnail%20%281%29.png)](datalake-storage-architecture/storage-foundation.md) | Amazon S3 provides the ideal datalake storage foundation by offering a highly scalable, durable, and secure environment for any type of data. It is strongly integrated with identity services in IAM, encryption services from KMS, and both internal AWS as well as third-party analytic services natively integrate with its API's. Click [here](datalake-storage-architecture/storage-foundation.md) to learn more about best practices for the foundation storage architecture of a datalake in S3. |
 | :--- | :--- |
 
 
