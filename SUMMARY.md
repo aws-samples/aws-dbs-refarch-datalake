@@ -11,7 +11,6 @@
   * [Data Ingestion using Amazon Glue](data-ingestion/aws-glue.md)
   * [Data Ingestion From On-Premise NFS using Amazon DataSync](data-ingestion/aws-datasync-on-prem-nfs.md)
 * [Data Curation Architectures](data-curation-architecture/README.md)
-  * [Data Curation using Apache Spark on Amazon EMR](data-curation-architecture/data-curation-using-amazon-emr.md)
   * [Data Curation Using AWS Glue](data-curation-architecture/data-curation-using-aws-glue.md)
 * [Data Security and Access Control](data-security-and-access-control/README.md)
   * [Access Control Using AWS Lake Formation](data-security-and-access-control/access-control-using-aws-lake-formation.md)
