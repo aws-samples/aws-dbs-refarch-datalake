@@ -1,5 +1,7 @@
 # Ingestion Architectures for Datalakes on AWS
 
+### Overview
+
 Customer applications generate various types of data in the form in form of database change logs, database snapshots, user events, logs etc. Ingesting these datasets with almost no transformation is an important function of a datalake. In this section, we would share some of the common architectural patterns for ingestion that we see with  many of our customers' data lakes.
 
 ### Reference _Architectures for Ingesting Data into a Data Lake_

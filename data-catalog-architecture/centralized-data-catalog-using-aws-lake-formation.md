@@ -7,7 +7,7 @@ description: >-
 
 # Centralized Data Catalog using AWS Lake Formation
 
-Building a datalake for an organization is a difficult task. If done right, it involves many activities such as ingestion, storage, curation, consumption, metadata management, security implementation and many more. AWS Lake Formation makes it easy to set up a secure data lake. Creating a data lake with Lake Formation is simple as it provides building blocks for each lifecycle of a datalake implementation. 
+
 
 ## AWS Lake Formation Definitions
 
@@ -28,11 +28,11 @@ The challenges that inhibited building a data lake were keeping track of all  ra
 
 Number of catalogs that you need for your corporate is entirely dependent on your use case and analytics culture. However, we highly recommend our customers to build a single data catalog on top of their S3 data lake to avoid data silos, ensure single source of truth and provide users with a single interface for data discovery and metadata management. 
 
-It is possible that customers might have a huge amount of data already stored in S3 in different AWS accounts. You create a single data catalog in one AWS account irrespective of where your data sits. For ease of data discovery, customers may want to organize their data subjects in different databases within the same data catalog. 
+It is possible that customers might have a huge amount of data already stored in S3 in different AWS accounts. You create a single data catalog in one AWS account irrespective of where your data sits. For ease of data discovery, customers may want to organize their data subjects in different **databases** within the same data catalog.  For setting up a single lake formation data catalog with data in different S3 buckets across different AWS accounts, please refer to the blog [here](https://aws.amazon.com/blogs/big-data/access-and-manage-data-from-multiple-accounts-from-a-central-aws-lake-formation-account/).
 
+### How do I organize my data catalog?
 
-
-
+The recommended approach for organizing bdata in 
 
 ## Securing your data lake
 
