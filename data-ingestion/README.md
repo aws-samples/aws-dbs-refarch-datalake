@@ -1,13 +1,12 @@
 # Ingestion Architectures for Datalakes on AWS
 
-### Overview
+### Introduction
 
-Customer applications generate various types of data in the form in form of database change logs, database snapshots, user events, logs etc. Ingesting these datasets with almost no transformation is an important function of a datalake. In this section, we would share some of the common architectural patterns for ingestion that we see with  many of our customers' data lakes.
+Data ingestion in datalakes is a process of scalably acquiring data from source systems like RDBMS, database change logs, click stream events,  application logs etc. and move them into  data lake storage platform without much transformations. In most cases, it is recommended to batch the records into chunks and store them in columnar format as part of ingestion process.  
 
-### Reference _Architectures for Ingesting Data into a Data Lake_
+### FAQs:
 
-1. _\*\*\*\*_[_**Ingest events and logs data using Kinesis Firehose**_](kinesis-firehose-and-kpl.md)_\*\*\*\*_
-2. _\*\*\*\*_[_**Ingest database changes using Database Migration Service**_](dms-and-lambda.md)_\*\*\*\*_
-3. _\*\*\*\*_[_**Ingest data from JDBC sources using Amazon Glue**_](aws-glue.md)_\*\*\*\*_
-4. _\*\*\*\*_[_**Ingest datafiles using Amazon DataSync**_](aws-datasync-on-prem-nfs.md)_\*\*\*\*_
+#### What are the key features to look for while selecting a ingestion solution?
+
+#### Can I use more than one ingestion service?
 
