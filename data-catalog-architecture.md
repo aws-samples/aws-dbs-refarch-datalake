@@ -29,7 +29,7 @@ It is possible that customers might have a huge amount of data already stored in
 
 ### How do I organize my data catalog?
 
-The recommended approach for organizing data in 
+The success of your data lake journey is based on the success of how people use the data catalog. Therefore, a thoughtful design and organization of yoour data lake is a paramount requirement. Datalake is not a system of record. In many organizations, people search for data based on tbneir system of records such as HR systems, Oracle ERP, SAP, Clickstream etc. Smilarly the nature and format of the data is different based on their lifecycle stage within the data lake. So, it is always a good idea to define a naming convention that's easy and self-explanatory for  users to serarch data within the datalake. Many of our customers use a naming convention that's representative of the system of record as well as lifecycle stage of the data in the data lake.
 
 
 
