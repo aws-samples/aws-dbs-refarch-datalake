@@ -29,7 +29,23 @@ It is possible that customers might have a huge amount of data already stored in
 
 ### How do I organize my data catalog?
 
-The success of your data lake journey is based on the success of how people use the data catalog. Therefore, a thoughtful design and organization of yoour data lake is a paramount requirement. Datalake is not a system of record. In many organizations, people search for data based on tbneir system of records such as HR systems, Oracle ERP, SAP, Clickstream etc. Smilarly the nature and format of the data is different based on their lifecycle stage within the data lake. So, it is always a good idea to define a naming convention that's easy and self-explanatory for  users to serarch data within the datalake. Many of our customers use a naming convention that's representative of the system of record as well as lifecycle stage of the data in the data lake.
+The success of your data lake journey is based on the success of how people use the data catalog. Therefore, a thoughtful approach to organize your data lake will go a long way. Datalake is not a system of record, it is stores data that's generated elsewhere. In many organizations, people look for datasets based on the system of records such as HR, ERP,  CRM, Ordering, Clickstream etc.  Similarly, it is a common pattern for prople to look for  datasets by their transformation lifecycle stage within the data lake such as raw, curated and conformed. So, it is always a good idea to define a design convention that's easy and self-explanatory. 
+
+* **Organize catalog databases by source of data**
+
+Many of our customers use separate databases to store data generated from different source systems. This makes it easy for users to  search datasets by source source systems. The primary reason for this design pattern are: 
+
+* It makes it easier for data consumers to discover data by source of the data 
+* Related datasets are colocated in the database.
+* Easy to enforce security controls on similar datasets.
+* Single threaded but decentralized ownership model can be easily implemented.
+* Drives faster adoption due to no cross-functional dependency
+
+\*\*\*\*
+
+* **Name tables with lifecycle stage within the datalake**
+
+As the data is ingested in the datalake, it goes through multiple stages of transformation lifecycle. Each stage has a different format and shape. It's always a good idea to define a naming conventions within a database that unambiguously segregates the lifecycle stage of same data. Please refer to the diagram below for a sample naming convention.
 
 
 
