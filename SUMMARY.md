@@ -10,7 +10,7 @@
   * [Data Ingestion using Amazon Glue](data-ingestion/aws-glue.md)
   * [Data Ingestion From On-Premise NFS using Amazon DataSync](data-ingestion/aws-datasync-on-prem-nfs.md)
 * [Data Curation Architectures](data-curation-architecture/README.md)
-  * [Merge Relational Database Changes Using AWS Glue](data-curation-architecture/data-curation-using-aws-glue.md)
+  * [Merge/Upsert  Datasets  Using AWS Glue](data-curation-architecture/data-curation-using-aws-glue.md)
 * [Data Quality Monitoring Architectures](data-quality-monitoring-architectures/README.md)
   * [Manage Data Quality Using AWS Batch](data-quality-monitoring-architectures/manage-data-quality-using-aws-batch.md)
 * [Data Consumption Architectures](data-analytics/README.md)
