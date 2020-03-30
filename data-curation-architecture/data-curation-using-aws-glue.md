@@ -11,6 +11,10 @@ Upsert or Merging data in a datalake is a very common requirement. Organizations
 
 #### Architecture Overview:
 
+In this architecture, we are going to discuss how to leverage AWS Glue transformations to apply changes to an existing table in a datalake. 
+
+ 
+
 
 
 
