@@ -43,9 +43,21 @@ Many of our customers use separate databases to store data generated from differ
 
 \*\*\*\*
 
-* **Name tables with lifecycle stage within the datalake**
+* **Name tables in same database with life-cycle stage of data within the lake**
 
-As the data is ingested in the datalake, it goes through multiple stages of transformation lifecycle. Each stage has a different format and shape. It's always a good idea to define a naming conventions within a database that unambiguously segregates the lifecycle stage of same data. Please refer to the diagram below for a sample naming convention.
+As the data is ingested in the datalake, it goes through multiple stages of transformation lifecycle. Each stage has a different format and shape. It's always recommended to define  naming conventions within a database that unambiguously segregates the life cycle stage of same data. Please refer to the diagram below for a sample naming convention. Customers are advised to choose naming convention that suits to their business and customer needs.
+
+
+
+![](.gitbook/assets/data-catalog.png)
+
+
+
+* **Managing conformed data and user spaces within the catalog.**
+
+ Often, businesses get similar datasets from more than one sources. For example, a customer for a large business can come from many ERP systems, CRMs or any specific app that stores customer information. When similar datasets flow into the lake from many sources, it becomes important to transform, conform and create a single source and version of truth for the enterprise. Our customers also want to provide sandbox environments to data scientists/analysts to temporarily store the result of their experiments with gov ernance.
+
+For conformed data and sandbox capabilities, it is recommended that customers create separate databases. To support such use cases,we advise to create additional LakeFormation databases. These  databases can be separated by conformed entities\(Customers, Orders\) or by business units\(Consumer, B2B etc.\)
 
 
 

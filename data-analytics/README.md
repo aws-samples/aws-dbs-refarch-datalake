@@ -1,19 +1,11 @@
 ---
-description: >-
-  This page provides reference architectures on how to leverage your centralized
-  data catalog to store schema, metadata and enable analytics on single source
-  of truth.
+description: Different ways to consume data from a data lake store.
 ---
 
 # Data Consumption Architectures
 
-## How can I know my consumption requirements upfront?
-
-
-
-## What is my best bet when requirements are unknown?
-
-
-
-## What are the key capabilities to look for in a data consumption service?
+1. _\*\*\*\*_[_**Querying Data lake using Athena**_ ](amazon-athena.md)_\*\*\*\*_
+2. _\*\*\*\*_[_**Querying Data lake using Red**_**s**_**hift Spectrum**_](redshift-spectrum.md)_\*\*\*\*_
+3. _\*\*\*\*_[_**Querying Data lake using EMR and External Hive Catalog**_](multi-emr-on-hive-metastore.md)_\*\*\*\*_
+4. _\*\*\*\*_[_**Querying Datalake using EMR**_](multi-emr-on-glue-catalog.md)_\*\*\*\*_
 
