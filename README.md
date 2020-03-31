@@ -1,3 +1,5 @@
+> # Due to repeated requests from users for a better interface. This content has been moved to GitBooks. Please visit https://aws-reference-architectures.gitbook.io/datalake/ for updated arcnitectures. This github repository shall be refreshed periodically. 
+
 ---
 description: >-
   This page provides an overview of what is a datalake and provides a highlevel
