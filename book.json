@@ -1,0 +1,8 @@
+{ "plugins": ["get-book"],
+  "pluginsConfig": {
+    "get-book": {
+      "url": "URL_TO_BOOK.PDF",
+      "label": "Download PDF"
+    }
+  }
+}
