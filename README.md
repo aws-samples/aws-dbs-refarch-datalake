@@ -3,7 +3,7 @@
 ---
 description: >-
   This page provides an overview of what is a datalake and provides a highlevel
-  blue print of how it looks like on AWS.
+  blueprint of datalake on AWS.
 ---
 
 # Overview of a Datalake an AWS
