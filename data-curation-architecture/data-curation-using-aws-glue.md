@@ -11,7 +11,7 @@ Upsert or Merging data in a datalake is a very common requirement. Organizations
 
 #### Architecture Overview:
 
-![Overwrite Partitions](../.gitbook/assets/image%20%281%29.png)
+![Overwrite Partitions](../.gitbook/assets/image%20%285%29.png)
 
 1. Sample data
    1. Orders Data for 2020-01-01.
