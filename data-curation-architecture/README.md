@@ -17,5 +17,5 @@ Upsert or Merging data in a datalake is a very common requirement. Organizations
 * **Sessionization:** Understanding user behaviour from online websites and clickstream data needs gouping multiple events into a single [session](https://en.wikipedia.org/wiki/Session_%28web_analytics%29). This information then can be used to support product analytics,targeted advertising etc. Building continuous applications to track sessions and recording the results that write into data lakes is difficult because data lakes have always been optimized for appending data.
 * **Deduplication:** A common data pipeline use case is to collect system logs into a  table by appending data to the table. However, often the sources can generate duplicate records and downstream de duplication steps are needed to take care of them.
 
-
+1. [Overwrite partitions using pyspark](data-curation-using-aws-glue.md)
 

@@ -14,7 +14,7 @@
   * [Data Ingestion using Amazon Glue](data-ingestion/aws-glue.md)
   * [Data Ingestion From On-Premise NFS using Amazon DataSync](data-ingestion/aws-datasync-on-prem-nfs.md)
 * [Data Curation Architectures](data-curation-architecture/README.md)
-  * [Merge/Upsert  Datasets  Using AWS Glue](data-curation-architecture/data-curation-using-aws-glue.md)
+  * [Overwrite Table Partitions Using PySpark](data-curation-architecture/data-curation-using-aws-glue.md)
 * [Data Consumption Architectures](data-analytics/README.md)
   * [Query S3 Data lake using Athena and Glue Catalog](data-analytics/amazon-athena.md)
   * [Query Data lake using Redshift Spectrum and Glue Catalog](data-analytics/redshift-spectrum.md)
