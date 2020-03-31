@@ -4,7 +4,7 @@
 * [Datalake Storage Architecture](datalake-storage-architecture/README.md)
   * [Amazon S3: A Storage Foundation for Datalakes on AWS](datalake-storage-architecture/storage-foundation.md)
 * [Data Catalog Architecture](data-catalog-architecture/README.md)
-  * [Schema Management Architectures](data-catalog-architecture/schema-management-architectures.md)
+  * [Schema Management Within a Data Catalog](data-catalog-architecture/schema-management-architectures.md)
 * [Data Security and Access Control Architecture](data-security-and-access-control-architecture/README.md)
   * [Data Security and Access Control Using IAM](data-security-and-access-control-architecture/data-security-and-access-control-using-iam.md)
   * [Fine-grained Access Control With Amazon Lake Formation](data-security-and-access-control-architecture/fine-grained-access-control-with-amazon-lake-formation.md)

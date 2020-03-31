@@ -2,7 +2,9 @@
 
 ### Access Control Using Amazon LakeFormation
 
-Data lakes are complex systems. 
+#### Overview
+
+Data lakes are complex systems. They not only get data data from many source systems but also many systems and users consume data from them.
 
 
 
