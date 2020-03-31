@@ -43,7 +43,7 @@ Customers typically use the managed Glue Crawler to populate the catalog with th
 
 ![Glue Data Catalog](.gitbook/assets/working-with-schemas.png)
 
-### Schema Management with AWS Glue Catalog
+### Schema Management with AWS Glue Catalog/Amazon LakeFormation
 
 AWS Glue Catalog can support datalake schema evolution, which means that it can understand the definition of a table over time, even when new columns and attributes are added.
 
@@ -51,11 +51,13 @@ AWS Glue Catalog can support datalake schema evolution, which means that it can 
 
 You can read more about dealing with schemas that change over time in the [Athena user guide](https://docs.aws.amazon.com/athena/latest/ug/handling-schema-updates-chapter.html).
 
-### [Data Security and Access Control Architectures]()
+### [Data Security and Access Control Architectures](data-security-and-access-control-architecture/data-security-and-access-control-using-iam.md)
 
-| [![](.gitbook/assets/thumbnail%20%287%29.png)]() | Data security and data protection is of paramount importance for data governance in a datalake. AWS has a extensive set of services to secure data in S3. AWS IAM and AWS KMS are widely used to control access and protect content. |
+|  | Data security and data protection is of paramount importance for data governance in a datalake. AWS has a extensive set of services to secure data in S3. AWS IAM and AWS KMS are widely used to control access and protect content. |
 | :--- | :--- |
 
+
+![](.gitbook/assets/thumbnail%20%287%29.png)
 
 ## Data Ingestion Architectures
 

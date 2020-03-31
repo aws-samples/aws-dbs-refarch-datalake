@@ -4,6 +4,8 @@
 * [Datalake Storage Architecture](datalake-storage-architecture/README.md)
   * [Amazon S3: A Storage Foundation for Datalakes on AWS](datalake-storage-architecture/storage-foundation.md)
 * [Data Catalog Architecture](data-catalog-architecture.md)
+* [Data Security and Access Control Architecture](data-security-and-access-control-architecture/README.md)
+  * [Data Security and Access Control Using IAM](data-security-and-access-control-architecture/data-security-and-access-control-using-iam.md)
 * [Ingestion Architectures for Datalakes on AWS](data-ingestion/README.md)
   * [Data Ingestion using Kinesis Firehose and Kinesis Producer Library \(KPL\)](data-ingestion/kinesis-firehose-and-kpl.md)
   * [Data Ingestion using Database Migration Service\(DMS\) and Lambda](data-ingestion/dms-and-lambda.md)
