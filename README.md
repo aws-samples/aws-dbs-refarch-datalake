@@ -1,4 +1,4 @@
-> # Due to repeated requests from users for a better interface. This content has been moved to GitBooks. Please visit to https://aws-reference-architectures.gitbook.io/datalake/ for latest architecture. This github repository shall be refreshed periodically. 
+> # Due to repeated requests from users for a better interface. This content has been moved to GitBooks. Please visit https://aws-reference-architectures.gitbook.io/datalake/ for latest architecture. This github repository shall be refreshed periodically. 
 
 ---
 description: >-
